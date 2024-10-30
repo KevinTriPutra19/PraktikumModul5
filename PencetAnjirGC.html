@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pertanyaan nih</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0e4d7;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      transition: all 0.3s;
+    }
+
+    .sayang {
+      background-color: #ff6f61;
+      color: white;
+    }
+
+    .ngga {
+      background-color: #d3d3d3;
+      color: black;
+      position: relative;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #ff6f61;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>badmood yaa?</h1>
+  <div class="buttons">
+    <button class="sayang" onclick="showMessage()">Kagak</button>
+    <button class="ngga" id="nggaButton" onmouseover="moveButton()">Pakek Nanya!!!!!</button>
+  </div>
+  <p id="message">denger Sound ini biar lu sadar</p>
+
+  <!-- Audio element -->
+  <audio id="audioPlayer" src="Audio/Gasss anjengggg.mp3" preload="auto"></audio>
+
+  <script>
+    function showMessage() {
+      const message = document.getElementById('message');
+      const audio = document.getElementById('audioPlayer');
+      message.style.display = 'block';
+      audio.play();  // Memutar suara ketika pesan ditampilkan
+    }
+
+    function moveButton() {
+      const button = document.getElementById('nggaButton');
+      const maxX = window.innerWidth - button.clientWidth;
+      const maxY = window.innerHeight - button.clientHeight;
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+
+      button.style.position = 'absolute';
+      button.style.left = randomX + 'px';
+      button.style.top = randomY + 'px';
+    }
+  </script>
+</body>
+</html>
